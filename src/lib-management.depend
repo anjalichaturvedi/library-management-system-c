@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1671701015 source:d:\c lab\lib-management\main.c
+	<stdio.h>
+	<time.h>
+	<string.h>
+
