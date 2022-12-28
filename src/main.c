@@ -5,7 +5,7 @@
 #define min_year  1900
 #define size_username 30
 #define size_password  20
-#define filename  "library.bin"
+#define filename "library.bin"
 
 // book info input
 #define bookname   50
@@ -24,7 +24,6 @@ typedef struct
 } Date;
 
 typedef struct
-
 {
     char username[size_username];
     char password[size_password];
@@ -32,7 +31,7 @@ typedef struct
 
 typedef struct
 {
-    unsigned int books_id;
+    int books_id;
     char bookName[bookname];
     char authorName[authorname];
     char studentName[studentname];
@@ -86,7 +85,7 @@ int isNameValid(const char *name)
     return validName;
 }
 
-int  IsLeapYear(int year)
+int IsLeapYear(int year)
 {
     return (((year % 4 == 0) &&
              (year % 100 != 0)) ||
@@ -482,7 +481,3 @@ int main()
     login();
     return 0;
 }
-
-
-
-
