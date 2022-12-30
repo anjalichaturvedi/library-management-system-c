@@ -16,6 +16,15 @@
 //structure to store date
 // genre, availability, book id
 
+int main()
+{
+    defaultLogin();
+    welcomeMessage();
+    login();
+    return 0;
+}
+
+// date structure
 typedef struct
 {
     int yyyy;
@@ -23,12 +32,14 @@ typedef struct
     int dd;
 } Date;
 
+// login structure
 typedef struct
 {
     char username[size_username];
     char password[size_password];
 } sFileHeader;
 
+// book info
 typedef struct
 {
     int books_id;
@@ -39,6 +50,7 @@ typedef struct
     Date bookIssueDate;
 } s_BooksInfo;
 
+// login message
 void printMessageCenter(const char* message)
 {
     int len =0;
@@ -52,6 +64,7 @@ void printMessageCenter(const char* message)
     printf("%s",message);
 }
 
+// initial message
 void headMessage(const char *message)
 {
     system("cls");
@@ -61,6 +74,7 @@ void headMessage(const char *message)
     printf("\n\t\t\t----------------------------------------------------------------------------");
 }
 
+// welcome
 void welcomeMessage()
 {
     headMessage("C Project");
@@ -68,6 +82,7 @@ void welcomeMessage()
     getch();
 }
 
+// check if name is valid
 int isNameValid(const char *name)
 {
     int validName = 1;
@@ -85,6 +100,7 @@ int isNameValid(const char *name)
     return validName;
 }
 
+//check for leap year-use in valid date
 int IsLeapYear(int year)
 {
     return (((year % 4 == 0) &&
@@ -103,7 +119,7 @@ int isValidDate(Date *validDate)
         return 0;
     if (validDate->mm == 2)
     {
-        if (IsLeapYear(validDate->yyyy))
+        if (IsLeapYear(validDate->yyyy)) //leap year is used to determine the number of months in feb
             return (validDate->dd <= 29);
         else
             return (validDate->dd <= 28);
@@ -472,12 +488,4 @@ void defaultLogin()
             fclose(fp);
         }
     }
-}
-
-int main()
-{
-    defaultLogin();
-    welcomeMessage();
-    login();
-    return 0;
 }
